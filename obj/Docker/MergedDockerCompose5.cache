@@ -1,0 +1,66 @@
+services:
+  docker.api:
+    build:
+      context: D:\VisualStudioProjeler\Docker
+      dockerfile: Docker.Api/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: Docker.Api
+      target: base
+    container_name: Docker.Api
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: ''
+    image: dockerapi:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/Debug/net5.0/Docker.Api.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - target: 80
+    tty: true
+    volumes:
+    - D:\VisualStudioProjeler\Docker\Docker.Api:/app:rw
+    - C:\Users\Zehra.Karahan\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\Zehra.Karahan\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\Zehra.Karahan\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Users\Zehra.Karahan\.nuget\packages:/root/.nuget/packages:ro
+    - D:\VisualStudioProjeler\Docker:/src:rw
+  docker.api2:
+    build:
+      context: D:\VisualStudioProjeler\Docker
+      dockerfile: Docker.Api2/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: Docker.Api2
+      target: base
+    container_name: Docker.Api2
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: ''
+    image: dockerapi2:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/Debug/net5.0/Docker.Api2.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - target: 80
+    tty: true
+    volumes:
+    - D:\VisualStudioProjeler\Docker\Docker.Api2:/app:rw
+    - C:\Users\Zehra.Karahan\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\Zehra.Karahan\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\Zehra.Karahan\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Users\Zehra.Karahan\.nuget\packages:/root/.nuget/packages:ro
+    - D:\VisualStudioProjeler\Docker:/src:rw
+version: '3.4'

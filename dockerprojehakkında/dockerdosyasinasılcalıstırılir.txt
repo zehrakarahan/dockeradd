@@ -1,0 +1,9 @@
+bu projede docker oluşturma olayı iki tane api oluşturulur.Ardından projelerde sag tık yap add kısmından docker support ediyoruz.
+Bu aşama bize projenin build edilmiş halini dockerfile olarak oluşturur.Her oluşturduğumuz api için bu yapılır tabi api dockerda
+kullanılacaksa tabikide :)
+Ardından yml dosyasını olusturmamız gerekiyor bu ne işe yarıyor derseniz eğer oda dockera çektiğiniz bütün projeleri
+aynı anda kısa sürede ayağa kaldırmak için kullanılır.Tamam artık sonuca bağlayalım yml nasıl oluşturulur.
+Var olan apine sag tuş yap add de sonra container orchestrator Support diyerek bir tane yml dosyası oluştururuz.
+Yanlız Bu projede birden fazla api kullanacaksanız her apiye bu işlemi yaptırmanız gerekiyor bunu yapınca 
+.yml uzantılı dosyaya dockerda otomatik ayağa kalkacak projeler eklenir.Son olarak projeyi bu .yml uzantılı projeden 
+başlatırsanız docker sorununuz çözülür. 
